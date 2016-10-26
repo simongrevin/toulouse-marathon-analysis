@@ -4,6 +4,8 @@ import urllib
 # result file
 file = open('marathon_results.csv', 'a')
 
+print("writing file...")
+
 # loop on all pages
 for i in range(1,28):
     
@@ -21,6 +23,7 @@ for i in range(1,28):
         col = tr_soup.find_all('td')
         
         if len(col) > 0:
+            
             # getting only the relevant info : spot;bib number;name;time
             line = col[0].getText() + ";" + col[1].getText() + ";" + col[2].getText() + ";" + col[4].getText() + ";\n"
             
@@ -28,3 +31,5 @@ for i in range(1,28):
             file.write(line.encode('utf-8'))
 
 file.close();
+
+print("finished !")
