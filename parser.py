@@ -3,11 +3,15 @@ import urllib
 
 # result file
 file = open('marathon_results.csv', 'a')
+header = "place;bib number;name;category;time;\n"
+file.write(header.encode('utf-8'))
 
-print("writing file...")
+print("writing csv file")
 
 # loop on all pages
-for i in range(1,28):
+for i in range(1,29):
+    
+    print("writing page " + str(i) + "...")
     
     # open url
     url = urllib.urlopen('https://www.marathon-toulousemetropole.fr/fr/resultats?type=&annee=&nom=&prenom=&club=&dossard=&sexe=&categorie=&p='+str(i)).read()
