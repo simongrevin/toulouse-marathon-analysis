@@ -3,7 +3,7 @@ import urllib
 
 # result file
 file = open('marathon_results.csv', 'a')
-header = "place;bib number;name;category;time;\n"
+header = "place;bib number;name;category;time\n"
 file.write(header.encode('utf-8'))
 
 print("writing csv file")
@@ -29,7 +29,7 @@ for i in range(1,29):
         if len(col) > 0:
             
             # getting only the relevant info : spot;bib number;name;time
-            line = col[0].getText() + ";" + col[1].getText() + ";" + col[2].getText() +";" + col[3].getText() + ";" + col[4].getText() + ";\n"
+            line = col[0].getText() + ";" + col[1].getText() + ";" + col[2].getText() +";" + col[3].getText() + ";" + col[4].getText() + "\n"
             
             # writing to result file
             file.write(line.encode('utf-8'))
