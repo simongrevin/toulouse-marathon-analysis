@@ -21,15 +21,15 @@ for i in range(1,29):
     rows = soup.find_all('table')[0].find_all('tr')
     
     # for each row
-    for tr_soup in rows:
+    for row in rows:
         
         # get all the cols
-        col = tr_soup.find_all('td')
+        cols = row.find_all('td')
         
-        if len(col) > 0:
+        if len(cols) > 0:
             
             # getting only the relevant info : spot;bib number;name;time
-            line = col[0].getText() + ";" + col[1].getText() + ";" + col[2].getText() +";" + col[3].getText() + ";" + col[4].getText() + "\n"
+            line = cols[0].getText() + ";" + cols[1].getText() + ";" + cols[2].getText() +";" + cols[3].getText() + ";" + cols[4].getText() + "\n"
             
             # writing to result file
             file.write(line.encode('utf-8'))
