@@ -35,7 +35,7 @@ for i in range(1, int(nb_pages)+2):
 
         if len(cols) > 0:
 
-            # getting only the relevant info : spot;bib number;name;time
+            # getting only the relevant info : spot;bib number;name;category;time
             line = cols[0].getText() + ";" + cols[1].getText() + ";" + cols[2].getText() +";" + cols[3].getText() + ";" + cols[4].getText() + "\n"
 
             # writing to result file
