@@ -19,4 +19,4 @@ age_category_dataframe = df['category'].map(get_age_category)
 final_df = df.join(age_category_dataframe, rsuffix='_age')
 
 # print final dataframe grouped by age category then by gender
-print(final_df.groupby(['category_age'])).count()
+print(final_df.groupby(['category_age']).count())
