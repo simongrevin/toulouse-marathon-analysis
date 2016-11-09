@@ -19,4 +19,21 @@ age_category_dataframe = df['category'].map(get_age_category)
 final_df = df.join(age_category_dataframe, rsuffix='_age')
 
 # print final dataframe grouped by age category then by gender
-print(final_df.groupby(['category_age']).count())
+df_group = final_df.groupby(['category_age']).count()['name']
+print(df_group)
+
+#sets the labels, values and colors
+labels = 'Espoir (20 to 22 yo)', 'Senior (23 to 39 yo)', 'Veteran (40+)'
+sizes = [df_group['Espoir'], df_group['Senior'], df_group['Veteran']]
+colors = ['yellowgreen', 'gold', 'lightskyblue']
+
+# explode second slice
+explode = (0, 0.1, 0)
+
+# configure pie
+plt.pie(sizes, explode=explode, labels=labels, colors=colors,
+        autopct='%1.1f%%', shadow=True, startangle=90)
+plt.axis('equal')
+
+# show pie
+plt.show()
